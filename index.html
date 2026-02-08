@@ -136,21 +136,24 @@
 
         .hero-badges {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: center;
             gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
+            margin: var(--spacing-md) auto;
+            max-width: 900px;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            background: rgba(10, 14, 39, 0.9);
+            flex: 1;
+            background: radial-gradient(circle at top, rgba(32, 201, 151, 0.35), rgba(10,14,39,0.95));
             border-radius: 999px;
             border: 1px solid rgba(32, 201, 151, 0.4);
-            padding: 0.5rem 1.25rem;
-            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
             color: var(--color-text);
@@ -163,7 +166,7 @@
         }
 
         .hero .tagline {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             max-width: 800px;
             margin: 0 auto var(--spacing-lg);
             opacity: 0.9;
@@ -226,8 +229,25 @@
         }
 
         .pillar-card p {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box {
+            background: radial-gradient(circle at top left, rgba(32,201,151,0.18), rgba(10,14,39,0.95));
+            border-radius: 16px;
+            border: 1px solid rgba(32,201,151,0.4);
+            padding: var(--spacing-xl);
+            box-shadow: 0 0 32px rgba(0, 217, 255, 0.25);
+            font-size: 0.98rem;
             line-height: 1.7;
+        }
+
+        .disclaimer-title {
+            font-size: 1.6rem;
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+            color: var(--color-primary);
         }
 
         .artifacts-section {
@@ -318,7 +338,7 @@
         .flip-card {
             background: transparent;
             perspective: 1000px;
-            height: 350px;
+            height: 380px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -576,7 +596,7 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: var(--spacing-md);
             margin-top: var(--spacing-xl);
         }
@@ -890,7 +910,7 @@
             .hero .tagline { font-size: 1.1rem; }
             .nav-links { display: none; }
             .projects, .pillars, .awards-grid { grid-template-columns: 1fr; }
-            .flip-card { height: 320px; }
+            .flip-card { height: 340px; }
             .flip-card.enlarged { width: 95%; min-height: 450px; }
             .filter-buttons { gap: var(--spacing-sm); }
             .filter-btn { padding: var(--spacing-xs) var(--spacing-md); font-size: 0.9rem; }
@@ -998,16 +1018,16 @@
                 },
                 interests: {
                     title: '💡 Interests',
-                    html: `<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work. Previously served as Program Director for Science Gurus, bringing science education to communities.</p>`
+                    html: `<p>Passionate about travel, dance, and cultural exchange. Active advocate for career returners and women at work.</p>`
                 },
                 volunteering: {
                     title: '🤝 Volunteering',
                     html: `
-                        <p>Dedicated volunteer with 50+ hours annually supporting:</p>
+                        <p>Program Director and active volunteer across STEM and community initiatives:</p>
                         <ul style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;">
-                            <li><strong>Career Development:</strong> Conducted mock interviews for YearUp interns, JVS participants, and Upwardly Global candidates. Mentored career returners and aspiring professionals.</li>
-                            <li><strong>Community Engagement:</strong> Active contributor to Workday EBCs (Women at Workday, Dosti), Kids Against Hunger meal packing, IRUSA hygiene kit assembly, and CX Giving & Doing events.</li>
-                            <li><strong>Milestones:</strong> Achieved Workday Benevity $1,000 donation grant through 50+ volunteer hours. Recognized as nominee for Workday Volunteer of the Year Award.</li>
+                            <li><strong>Program Director, Science Gurus:</strong> Lead STEM programming and outreach, connecting learners with hands‑on science experiences.</li>
+                            <li><strong>Career Development:</strong> Mock interviews and mentoring for YearUp, JVS, Upwardly Global, and career returners.</li>
+                            <li><strong>Community Engagement:</strong> Workday EBCs (Women at Workday, Dosti), CX Giving &amp; Doing, Kids Against Hunger, IRUSA, and other local initiatives.</li>
                         </ul>
                     `
                 }
@@ -1052,8 +1072,9 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#metrics">Impact</a></li>
                     <li><a href="#projects">Impact Stories</a></li>
-                    <li><a href="#recognition">Recognition</a></li>
+                    <li><a href="#recognition">Awards</a></li>
                     <li><a href="#voices">Voices</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Connect</a></li>
@@ -1079,7 +1100,9 @@
                     <span>Enterprise CX, Consulting, and M&amp;A</span>
                 </div>
             </div>
-            <p class="tagline">I architect enterprise learning programs that drive measurable business outcomes — from global onboarding at scale to AI adoption and M&amp;A enablement. 14 years of cross-industry experience spanning education, SaaS, and enterprise technology, with the last four years specializing in tech enablement programs that accelerate readiness, improve performance, and earn stakeholder trust.</p>
+            <p class="tagline">
+                Enterprise learning programs that drive measurable business outcomes — from global onboarding at scale to AI adoption and M&amp;A enablement. Fourteen years of cross‑industry experience spanning education, SaaS, and enterprise technology, with the last four years specializing in tech enablement programs that accelerate readiness, improve performance, and earn stakeholder trust.
+            </p>
         </div>
     </section>
 
@@ -1089,27 +1112,77 @@
             <div class="pillars">
                 <div class="pillar-card">
                     <h3>🚀 Enterprise Enablement Programs at Scale</h3>
-                    <p>Global onboarding, consulting readiness, and workforce development programs for organizations of 4,500+ employees. Architect curriculum frameworks that compress timelines, replace costly vendors, and deliver consistently high satisfaction scores (4.89/5 average).</p>
+                    <p>Design and delivery of global onboarding, consulting readiness, and workforce development programs for organizations of 4,500+ employees.</p>
                 </div>
                 <div class="pillar-card">
                     <h3>🤖 AI Adoption &amp; Strategic Enablement</h3>
-                    <p>Early adopter and strategic advisor for AI-first learning initiatives. Pioneered Gemini-powered workflows, Google Vids templates, and custom GEMs before enterprise rollout. Led global AI Live Labs for 690+ Workmates, exceeded AI usage OKRs (80% vs. 62% target), and founded AI Slides GEM with 829+ views.</p>
+                    <p>Early AI enablement leader driving Gemini, Google Vids, and GEM-based workflows, with live labs and internal tools that exceed adoption OKRs.</p>
                 </div>
                 <div class="pillar-card">
                     <h3>🔄 M&amp;A Integration Enablement</h3>
-                    <p>Rapid-response enablement architect for acquisition integrations. Designed multi-release strategies for Paradox (207% readiness increase), HiredScore (48-hour turnaround earning VP praise), and Sana Labs (85% readiness lift). Expert in high-velocity delivery under aggressive go-to-market timelines.</p>
+                    <p>Rapid-response learning strategies for acquisitions like Paradox, HiredScore, and Sana Labs, focused on readiness lift under aggressive timelines.</p>
                 </div>
                 <div class="pillar-card">
                     <h3>🎯 Learning Architecture &amp; Instructional Design</h3>
-                    <p>Blended learning ecosystems — ILT/VILT, eLearning, microlearning, gamified experiences, simulations, playbooks, and performance support. Grounded in adult learning principles and continuously optimized through learner analytics. Created proprietary frameworks (5Cs of Consulting, Amazing Race gamification).</p>
+                    <p>Blended learning ecosystems combining ILT/VILT, eLearning, microlearning, simulations, and job aids grounded in adult learning principles.</p>
                 </div>
                 <div class="pillar-card">
                     <h3>📋 Strategic Program Management</h3>
-                    <p>End-to-end program lifecycle management for complex, cross-functional initiatives. Expert in stakeholder alignment, resource optimization, and delivery under aggressive timelines. Certified Google Project Manager with proven track record managing 6-week compressed timelines for enterprise-scale programs achieving 100% compliance.</p>
+                    <p>End‑to‑end ownership of complex, cross‑functional programs with compressed timelines, stakeholder alignment, and measurable outcomes.</p>
                 </div>
                 <div class="pillar-card">
                     <h3>⚙️ Technical Learning Systems</h3>
-                    <p>Design and delivery of technical enablement for engineering and operations teams. Built Intelligent Automation Hub hands-on simulations for SRE teams, Python Essentials project-based learning, and regression testing protocols achieving 88.6% completion rates. Bridge technical complexity with accessible learning design.</p>
+                    <p>Technical enablement for engineering and operations teams, including simulations, project‑based learning, and regression‑testing workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="disclaimer">
+        <div class="container content-narrow">
+            <div class="disclaimer-box">
+                <h2 class="disclaimer-title">Portfolio Context &amp; Disclaimer</h2>
+                <p>
+                    This portfolio contains selected examples of my instructional design work created during my time at Workday. These artifacts are shared solely for interview and evaluation purposes and include public-facing or externally shareable content.
+                </p>
+                <p>
+                    The materials are provided to demonstrate my design thinking, learning strategy, and execution and are not intended for reuse, redistribution, or commercial use.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics">
+        <div class="container">
+            <h2 class="section-title">Impact Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">400+</div>
+                    <div class="metric-label">New Workmates Onboarded (6 months)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">4.89/5</div>
+                    <div class="metric-label">Average Satisfaction Score</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">829+</div>
+                    <div class="metric-label">AI Slides GEM Views</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">690+</div>
+                    <div class="metric-label">Workmates AI-Trained</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">664%</div>
+                    <div class="metric-label">CX Central View Increase</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">207%</div>
+                    <div class="metric-label">Paradox Readiness Lift</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">85%</div>
+                    <div class="metric-label">Sana Readiness Lift</div>
                 </div>
             </div>
         </div>
@@ -1157,7 +1230,12 @@
                 </div>
 
                 <h3 class="subsection-title" style="margin-top: 4rem;">Impact Stories</h3>
-                <p class="content-narrow" style="text-align: center; margin: 0 auto var(--spacing-md); font-size: 1.15rem; opacity: 0.9; line-height: 1.7;">Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.</p>
+                <p class="content-narrow" style="text-align: center; margin: 0 auto var(--spacing-md); font-size: 1.15rem; opacity: 0.9; line-height: 1.7;">
+                    Program design, stakeholder engagement, and measurable outcomes. Click any card to explore the full story.
+                </p>
+                <p style="text-align: center; font-size: 0.95rem; font-style: italic; opacity: 0.85; margin-bottom: var(--spacing-lg);">
+                    Example shown for interview review purposes only.
+                </p>
                 
                 <div class="filter-buttons">
                     <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
@@ -1203,7 +1281,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Onboarding</span>
                             <h3 class="project-title">CX Lift Off: Global Onboarding</h3>
-                            <p class="project-description">Comprehensive global onboarding program scaled to 400+ employees in 6 months</p>
+                            <p class="project-description">Comprehensive global onboarding scaled to 400+ employees in 6 months</p>
                             <div class="impact-number">4.89/5</div>
                             <div class="impact-label">Satisfaction • 400+ in 6 Months</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1212,9 +1290,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Onboarding</span>
                                 <h3>CX Lift Off: Global Onboarding</h3>
-                                <p><strong>Challenge:</strong> Design and launch enterprise onboarding for global CX employees across multiple locations (Costa Rica, Pune, India) with zero existing curriculum, scaling rapidly to support 100+ employees from Paradox M&A integration.</p>
-                                <p><strong>Solution:</strong> Architected comprehensive 2-day immersive program featuring interactive workshops, gamified learning, and blended delivery. Compressed standard 4-6 month timeline to 6 weeks.</p>
-                                <p><strong>Impact:</strong> 4.89/5 satisfaction, 4.71/5 post-session confidence gains. Scaled to 400+ global Workmates in first 6 months. Initial launch delivered to 107 employees in Costa Rica and Pune. Earned Diamond Award and recognized as best onboarding in 20-year career by leadership.</p>
+                                <p><strong>Challenge:</strong> Launch enterprise onboarding for CX employees across Costa Rica and Pune with zero existing curriculum, while preparing for incoming Paradox teams.</p>
+                                <p><strong>Solution:</strong> Architected a 2‑day immersive program with interactive workshops, gamified elements, and blended delivery, developed on a compressed six‑week timeline.</p>
+                                <p><strong>Impact:</strong> 4.89/5 satisfaction, 4.71/5 post‑session confidence gains, scaled to 400+ Workmates in the first six months, and recognized by leadership as the best onboarding in a 20‑year career.</p>
                                 <div>
                                     <span class="project-tag">Gamification</span>
                                     <span class="project-tag">Global Delivery</span>
@@ -1230,7 +1308,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Onboarding</span>
                             <h3 class="project-title">Consulting Essentials Revamp</h3>
-                            <p class="project-description">Replaced third-party curriculum with in-house framework</p>
+                            <p class="project-description">Replaced third-party curriculum with Workday-specific framework</p>
                             <div class="impact-number">33%</div>
                             <div class="impact-label">Duration Reduction • 4.61/5 Rating</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1239,9 +1317,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Onboarding</span>
                                 <h3>Consulting Essentials Revamp</h3>
-                                <p><strong>Challenge:</strong> Replace costly $20K-per-cohort third-party consulting onboarding with Workday-specific curriculum reflecting actual processes.</p>
-                                <p><strong>Solution:</strong> Re-engineered entire program incorporating SME feedback. Created proprietary "5Cs of Consulting" framework. Built dynamic 2-day collaborative experience with hands-on capstone.</p>
-                                <p><strong>Impact:</strong> 33% duration reduction, eliminated vendor costs, 4.61/5 satisfaction. Established new global standard for all Technical Consultants, Engagement Managers, and Functional Consultants.</p>
+                                <p><strong>Challenge:</strong> Retire a generic $20K‑per‑cohort vendor program and replace it with a Workday‑relevant consulting onboarding experience.</p>
+                                <p><strong>Solution:</strong> Built a new 2‑day global standard from the ground up, including the proprietary “5Cs of Consulting” model and a collaborative capstone.</p>
+                                <p><strong>Impact:</strong> Reduced program duration by 33%, eliminated vendor costs, and achieved a 4.61/5 satisfaction rating across consultants and engagement managers.</p>
                                 <div>
                                     <span class="project-tag">Framework Development</span>
                                     <span class="project-tag">Cost Savings</span>
@@ -1257,7 +1335,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">M&amp;A</span>
                             <h3 class="project-title">Paradox M&amp;A Enablement</h3>
-                            <p class="project-description">Multi-release enablement for Paradox and HiredScore integration</p>
+                            <p class="project-description">Multi-release enablement for Paradox and HiredScore</p>
                             <div class="impact-number">207%</div>
                             <div class="impact-label">Readiness Increase</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1266,9 +1344,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">M&amp;A</span>
                                 <h3>Paradox M&amp;A Enablement</h3>
-                                <p><strong>Challenge:</strong> Rapid enablement for Paradox and HiredScore acquisitions with aggressive go-to-market timelines and zero existing training infrastructure.</p>
-                                <p><strong>Solution:</strong> Designed multi-release enablement architecture. Launched Paradox for CX global course for R1.5. Executed high-velocity performance support for unified deployment.</p>
-                                <p><strong>Impact:</strong> 207% readiness increase, 4.95/5 satisfaction. Delivered critical asset in under 48 hours earning VP praise.</p>
+                                <p><strong>Challenge:</strong> Quickly enable CX on new Paradox and HiredScore capabilities with minimal existing training assets.</p>
+                                <p><strong>Solution:</strong> Designed a multi‑release enablement plan with a global course and layered performance support.</p>
+                                <p><strong>Impact:</strong> Delivered a 207% readiness increase and 4.95/5 satisfaction, with critical assets created in under 48 hours.</p>
                                 <div>
                                     <span class="project-tag">Rapid Execution</span>
                                     <span class="project-tag">Multi-Release</span>
@@ -1284,7 +1362,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Platform Adoption</span>
                             <h3 class="project-title">CX Central Launch Campaign</h3>
-                            <p class="project-description">Multi-faceted campaign with gamified "Amazing Race" experience</p>
+                            <p class="project-description">Multi-faceted campaign with “Amazing Race” gamified experience</p>
                             <div class="impact-number">664%</div>
                             <div class="impact-label">View Increase</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1293,9 +1371,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Platform Adoption</span>
                                 <h3>CX Central Launch Campaign (Project Trident)</h3>
-                                <p><strong>Challenge:</strong> Drive awareness and adoption of reorganized CX Central knowledge platform across 4,500+ CX employees with competing priorities.</p>
-                                <p><strong>Solution:</strong> As Project Trident lead, drove comprehensive platform adoption campaign for the CX Central knowledge hub on HighSpot. Created first-of-its-kind "Amazing Race" gamified experience on Sana Labs platform, overview video with taxonomy walkthrough, and viral social tagging initiative.</p>
-                                <p><strong>Impact:</strong> 664% view increase, 95% increase in new viewers, 252% viewer growth, 4.8/5 satisfaction. Earned Challenge Coin. Described as "stroke of genius."</p>
+                                <p><strong>Challenge:</strong> Drive adoption of a reorganized CX Central hub across 4,500+ CX employees amid competing priorities.</p>
+                                <p><strong>Solution:</strong> Led Project Trident, combining an overview video, a Sana‑based “Amazing Race” experience, and a social tagging campaign.</p>
+                                <p><strong>Impact:</strong> Achieved a 664% view increase, 95% new viewers, 252% viewer growth, 4.8/5 satisfaction, and Challenge Coin recognition.</p>
                                 <div>
                                     <span class="project-tag">Gamification</span>
                                     <span class="project-tag">Innovation</span>
@@ -1311,7 +1389,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">M&amp;A</span>
                             <h3 class="project-title">Sana Labs M&amp;A Enablement</h3>
-                            <p class="project-description">Microlearning strategy for complex multi-release initiative</p>
+                            <p class="project-description">Microlearning strategy for complex multi-release rollout</p>
                             <div class="impact-number">85%</div>
                             <div class="impact-label">Readiness Increase</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1320,9 +1398,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">M&amp;A</span>
                                 <h3>Sana Labs M&amp;A Enablement</h3>
-                                <p><strong>Challenge:</strong> Support complex multi-release Sana Labs integration requiring efficient knowledge transfer at scale.</p>
-                                <p><strong>Solution:</strong> Architected comprehensive microlearning strategy. Designed first "Sana Learn Snapshot" for high-level overviews. Created "At-a-Glance" asset in under 24 hours.</p>
-                                <p><strong>Impact:</strong> 85% readiness increase within weeks of launch. Earned immediate stakeholder appreciation for rapid execution.</p>
+                                <p><strong>Challenge:</strong> Support a multi‑release Sana Labs integration while keeping the learning footprint lightweight and scalable.</p>
+                                <p><strong>Solution:</strong> Designed microlearning assets including the first “Sana Learn Snapshot” and a 24‑hour “At‑a‑Glance” overview.</p>
+                                <p><strong>Impact:</strong> Enabled an 85% readiness increase within weeks and earned strong stakeholder appreciation for speed and clarity.</p>
                                 <div>
                                     <span class="project-tag">Microlearning</span>
                                     <span class="project-tag">24-Hour Turnaround</span>
@@ -1338,7 +1416,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Program Management</span>
                             <h3 class="project-title">Support People Leader Development</h3>
-                            <p class="project-description">Manager development for Escalation, Decision Support, Queue Management</p>
+                            <p class="project-description">Manager development for escalation, decision support, and queues</p>
                             <div class="impact-number">In Progress</div>
                             <div class="impact-label">3-Part Learning Model</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1347,9 +1425,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Program Management</span>
                                 <h3>Support People Leader Development</h3>
-                                <p><strong>Challenge:</strong> Elevate Customer Support manager performance in Escalation Management, Business Decision Support, and Queue Management to improve CSAT scores.</p>
-                                <p><strong>Solution:</strong> Program Architect leading discovery workshops with top performers. Designed integrated 3-part model: LOD curriculum, performance support assets, Applied Learning Lab using Sana-Miro.</p>
-                                <p><strong>Progress:</strong> Validated seamless virtual experience. Created Best Practices infrastructure. Secured stakeholder buy-in for full mobilization.</p>
+                                <p><strong>Challenge:</strong> Equip Support managers with stronger skills in Escalation Management, Business Decision Support, and Queue Management.</p>
+                                <p><strong>Solution:</strong> Architected a three‑part model: LOD curriculum, performance support, and applied learning labs using Sana + Miro.</p>
+                                <p><strong>Progress:</strong> Validated the virtual experience, built best‑practice infrastructure, and aligned stakeholders for full rollout.</p>
                                 <div>
                                     <span class="project-tag">Blended Learning</span>
                                     <span class="project-tag">Sana-Miro Integration</span>
@@ -1365,7 +1443,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Content Governance</span>
                             <h3 class="project-title">Project Artemis</h3>
-                            <p class="project-description">Unified content governance credential for SPOT platform</p>
+                            <p class="project-description">Unified content governance credential for SPOT owners</p>
                             <div class="impact-number">100%</div>
                             <div class="impact-label">SPOT Compliance</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1374,9 +1452,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Content Governance</span>
                                 <h3>Project Artemis: SPOT Governance Initiative</h3>
-                                <p><strong>Challenge:</strong> Achieve 95% compliance on SPOT (HighSpot content management platform) by August 1 across Global Revenue and CX organizations through unified content governance standards where none existed.</p>
-                                <p><strong>Solution:</strong> Integral role in cross-functional collaboration developing "Workday Unified Content Governance Credential for SPOT Owners & Editors" eLearning course. Rapid onboarding to project, created 2 key enablement videos, co-built interactive course on compressed timeline with Global Revenue team.</p>
-                                <p><strong>Impact:</strong> Exceeded target with 100% compliance across identified attributes. 4/5 skill application rating, 74.25% CSAT. Course ensured up-to-date, relevant data availability organization-wide. Earned Innovation recognition from Global Revenue partner Justin Hughes.</p>
+                                <p><strong>Challenge:</strong> Achieve 95% SPOT compliance across Global Revenue and CX with no unified governance standard.</p>
+                                <p><strong>Solution:</strong> Co‑created the Workday Unified Content Governance Credential, including two key explainer videos and an interactive course.</p>
+                                <p><strong>Impact:</strong> Reached 100% compliance on targeted attributes with 74.25 CSAT and 4/5 skill application; recognized for innovation and collaboration.</p>
                                 <div>
                                     <span class="project-tag">Cross-Functional</span>
                                     <span class="project-tag">Standards Creation</span>
@@ -1392,7 +1470,7 @@
                         <div class="flip-card-front">
                             <span class="project-category">Skills Inventory</span>
                             <h3 class="project-title">SRE Skills Inventory</h3>
-                            <p class="project-description">Workforce capability assessment for technical roles</p>
+                            <p class="project-description">Capability mapping across 11 technical roles</p>
                             <div class="impact-number">11</div>
                             <div class="impact-label">Technical Roles Assessed</div>
                             <p class="click-hint">Click to explore details →</p>
@@ -1401,9 +1479,9 @@
                             <div class="project-back-content">
                                 <span class="project-category">Skills Inventory</span>
                                 <h3>SRE Skills Inventory Project</h3>
-                                <p><strong>Challenge:</strong> Identify critical skills and capability gaps across 11 technical roles in the Site Reliability Engineering organization to inform strategic workforce planning and targeted learning development.</p>
-                                <p><strong>Solution:</strong> Designed and executed comprehensive skills assessment framework. Conducted stakeholder interviews with SRE leadership, analyzed role requirements, mapped skills to proficiency levels, and created capability matrix for workforce planning.</p>
-                                <p><strong>Impact:</strong> Delivered strategic skills inventory identifying critical capabilities and gaps across SRE organization. Findings directly informed targeted learning program development and workforce capability building initiatives.</p>
+                                <p><strong>Challenge:</strong> Understand capabilities and gaps across 11 Site Reliability Engineering roles.</p>
+                                <p><strong>Solution:</strong> Built a skills framework, conducted stakeholder interviews, and produced a capability matrix.</p>
+                                <p><strong>Impact:</strong> Delivered a strategic view of SRE skills that informs workforce planning and targeted learning investments.</p>
                                 <div>
                                     <span class="project-tag">Workforce Planning</span>
                                     <span class="project-tag">Capability Assessment</span>
@@ -1449,19 +1527,19 @@
                     <div class="award-badge">🏆</div>
                     <h3>Diamond Award</h3>
                     <p class="award-quarter">FY26 Q2 &amp; Q3</p>
-                    <p>Recognized by Sr. Director for major strategic contribution and "Glad to be Here" mindset exemplifying operational excellence.</p>
+                    <p>Recognized by Sr. Director for major strategic contribution and “Glad to be Here” mindset in CX enablement.</p>
                 </div>
                 <div class="award-card">
                     <div class="award-badge">⭐</div>
                     <h3>High Five Award</h3>
                     <p class="award-quarter">FY26 Q1</p>
-                    <p>Expert collaborator finding innovative solutions across organizational boundaries.</p>
+                    <p>Honored as an expert collaborator who bridges teams and finds innovative solutions.</p>
                 </div>
                 <div class="award-card">
                     <div class="award-badge">🎖️</div>
                     <h3>Challenge Coin</h3>
                     <p class="award-quarter">FY26 Q1</p>
-                    <p>Recognized for invaluable contribution to Project Trident initiative.</p>
+                    <p>Recognized for invaluable contribution to Project Trident and the CX Central launch.</p>
                 </div>
                 <div class="award-card">
                     <div class="award-badge">🤝</div>
@@ -1470,45 +1548,13 @@
                     <p>Honorable Mention for CX 101 Onboarding Program delivery excellence.</p>
                 </div>
             </div>
-
-            <h3 class="subsection-title" style="margin-top: 4rem;">Impact Metrics</h3>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-number">400+</div>
-                    <div class="metric-label">New Workmates Onboarded (6 months)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">4.89/5</div>
-                    <div class="metric-label">Average Satisfaction Score</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">829+</div>
-                    <div class="metric-label">AI Slides GEM Views</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">690+</div>
-                    <div class="metric-label">Workmates AI-Trained</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">664%</div>
-                    <div class="metric-label">CX Central View Increase</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">207%</div>
-                    <div class="metric-label">Paradox Readiness Lift</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">85%</div>
-                    <div class="metric-label">Sana Readiness Lift</div>
-                </div>
-            </div>
         </div>
     </section>
 
     <section id="voices">
         <div class="container">
             <h2 class="section-title">Voices of Impact</h2>
-            <p class="content-narrow" style="text-align: center; margin: 0 auto var(--spacing-xl); font-size: 1.15rem; opacity: 0.9; line-height: 1.7;">Feedback from cross-functional partners and learners</p>
+            <p class="content-narrow" style="text-align: center; margin: 0 auto var(--spacing-xl); font-size: 1.15rem; opacity: 0.9; line-height: 1.7;">Feedback from cross-functional partners, leaders, and learners.</p>
 
             <div class="carousel-container">
                 <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
@@ -1591,7 +1637,9 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p style="text-align: center; font-size: 1.15rem; margin-bottom: 2rem; line-height: 1.8;">I thrive in fast-moving, high-ambiguity environments where the brief is "figure it out and make it excellent." My career spans education, SaaS, and enterprise technology — and the thread connecting all of it is translating strategic vision into learning experiences that actually change behavior.</p>
+                <p style="text-align: center; font-size: 1.15rem; margin-bottom: 2rem; line-height: 1.8;">
+                    Thrives in fast‑moving, high‑ambiguity environments where the brief is “figure it out and make it excellent.” Career spans education, SaaS, and enterprise technology — united by a focus on turning strategic vision into learning experiences that change behavior.
+                </p>
 
                 <div class="about-grid">
                     <div class="about-card" onclick="openAboutModal('education')">
@@ -1633,7 +1681,9 @@
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-info">
-                <p style="font-size: 1.125rem; margin-bottom: var(--spacing-lg);">Interested in discussing learning enablement programs, instructional design, or AI adoption strategies? I'd love to hear from you.</p>
+                <p style="font-size: 1.125rem; margin-bottom: var(--spacing-lg);">
+                    Interested in learning enablement programs, instructional design, or AI adoption strategies? Let’s talk.
+                </p>
                 <div class="contact-links">
                     <a href="mailto:kaycee.3025@gmail.com" class="contact-btn">📧 Email</a>
                     <a href="https://www.linkedin.com/in/chitrasrisankar" class="contact-btn" target="_blank">💼 LinkedIn</a>
