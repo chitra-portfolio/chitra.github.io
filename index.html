@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chitra Srisankar - Learning Enablement Portfolio</title>
+    <title>Chitra Srisankar - Learning Enablement Profile</title>
     <style>
         :root {
             --color-primary: #20C997;
@@ -181,6 +181,89 @@
         .artifact-btn { background: var(--color-primary); color: #000; border: none; padding: 0.7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: auto; }
         .artifact-btn:hover { background: var(--color-primary-dark); transform: scale(1.04); }
 
+        /* ===== ENABLEMENT TOOLKIT – HORIZONTAL TABS ===== */
+        .toolkit-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .toolkit-tabs {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 1rem;
+        }
+        
+        .toolkit-tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem 0.5rem 0.8rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            background: #111831;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border: 1px solid transparent;
+            border-bottom: none;
+            transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
+        }
+        
+        .toolkit-tab:not(:last-child) {
+            margin-right: 0.3rem;
+        }
+        
+        .toolkit-tab span { display: block; }
+        
+        .toolkit-tab small {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+        
+        .toolkit-tab.active {
+            background: var(--color-bg-light);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(1px);
+        }
+        
+        .toolkit-body {
+            background: var(--color-bg-light);
+            border-radius: 0 16px 16px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 1.6rem 1.8rem;
+        }
+        
+        .toolkit-panel { display: none; }
+        .toolkit-panel.active { display: block; }
+        
+        .toolkit-panel h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: var(--color-text);
+        }
+        
+        .toolkit-panel p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.7rem;
+        }
+        
+        .toolkit-list {
+            list-style: disc;
+            padding-left: 1.2rem;
+        }
+        
+        .toolkit-list li {
+            margin-bottom: 0.45rem;
+            font-size: 0.93rem;
+            color: var(--color-text-light);
+        }
+
+        
         /* ===== METRICS ===== */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 1.5rem; margin-top: var(--spacing-lg); }
         .metric-card { text-align: center; padding: var(--spacing-lg); background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid var(--color-border); transition: 0.3s; }
@@ -286,6 +369,7 @@
             });
             document.querySelector('.flip-overlay').style.display = 'none';
         }
+
         function enlargeCard(card){
             const overlay = document.querySelector('.flip-overlay');
             document.querySelectorAll('.flip-card').forEach(c => { if(c!==card){ c.classList.remove('enlarged','flipped'); }});
@@ -293,10 +377,12 @@
             card.classList.toggle('flipped', isE);
             overlay.style.display = isE ? 'block' : 'none';
         }
+
         function closeEnlarged(){
             document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('enlarged','flipped'));
             document.querySelector('.flip-overlay').style.display = 'none';
         }
+
         function openAboutModal(section){
             const modal = document.getElementById('aboutModal');
             const title = document.getElementById('modalTitle');
@@ -312,10 +398,14 @@
             body.innerHTML = c[section].html;
             modal.classList.add('active');
         }
-        function closeModal(){ document.getElementById('aboutModal').classList.remove('active'); }
+
+        function closeModal(){
+            document.getElementById('aboutModal').classList.remove('active');
+        }
 
         let currentTestimonialSet = 0;
         const totalTestimonialSets = 3;
+
         function moveCarousel(dir){
             const sets = document.querySelectorAll('.testimonial-set');
             sets[currentTestimonialSet].classList.remove('active');
@@ -324,6 +414,43 @@
             if(currentTestimonialSet >= totalTestimonialSets) currentTestimonialSet = 0;
             sets[currentTestimonialSet].classList.add('active');
         }
+
+        // RUN AFTER PAGE LOAD: smooth scroll + toolkit tabs
+        document.addEventListener('DOMContentLoaded', function(){
+            // smooth scroll for nav links
+            document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(ev){
+                    const id = this.getAttribute('href').substring(1);
+                    const el = document.getElementById(id);
+                    if(el){
+                        ev.preventDefault();
+                        const y = el.getBoundingClientRect().top + window.scrollY - 60;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Enablement Toolkit tabs
+            const tabs = document.querySelectorAll('.toolkit-tab');
+            const panels = document.querySelectorAll('.toolkit-panel');
+
+            function activateToolkit(id) {
+                tabs.forEach(t =>
+                    t.classList.toggle('active', t.dataset.tab === id)
+                );
+                panels.forEach(p =>
+                    p.classList.toggle('active', p.dataset.tab === id)
+                );
+            }
+
+            tabs.forEach(t =>
+                t.addEventListener('click', () => activateToolkit(t.dataset.tab))
+            );
+
+            if (tabs.length) {
+                activateToolkit('1');
+            }
+        });
     </script>
 </head>
 <body>
@@ -650,51 +777,110 @@
         <div class="flip-overlay" onclick="closeEnlarged()"></div>
     </section>
 
-    <!-- 4. PORTFOLIO SHOWCASE -->
-    <section id="portfolio">
-        <h2 class="section-title">Portfolio Showcase</h2>
+    <!-- 4. ENABLEMENT TOOLKIT -->
+    <section id="toolkit">
+        <h2 class="section-title">Enablement Toolkit</h2>
         <div class="section-divider"></div>
-        <p style="text-align:center; font-size:0.95rem; font-style:italic; opacity:0.85; margin-bottom:var(--spacing-lg);">Example shown for interview review purposes only.</p>
 
-        <div class="artifacts-grid">
-            <div class="artifact-card">
-                <div class="artifact-icon">🎥</div>
-                <h4>Explainer Videos</h4>
-                <p class="artifact-description">Concise videos that clarify complex changes and accelerate understanding.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1cJNTNUd2jp28l-36tIl_zRUMLLWfCgxq','_blank')">View Videos</button>
+        <div class="toolkit-wrapper">
+            <div class="toolkit-tabs">
+                <div class="toolkit-tab active" data-tab="1">
+                    <span>Strategy</span>
+                    <small>Architecture &amp; Programs</small>
+                </div>
+                <div class="toolkit-tab" data-tab="2">
+                    <span>Innovation</span>
+                    <small>Interactive Media</small>
+                </div>
+                <div class="toolkit-tab" data-tab="3">
+                    <span>Support</span>
+                    <small>Performance &amp; JIT</small>
+                </div>
+                <div class="toolkit-tab" data-tab="4">
+                    <span>Adoption</span>
+                    <small>Comms &amp; Campaigns</small>
+                </div>
+                <div class="toolkit-tab" data-tab="5">
+                    <span>Insights</span>
+                    <small>Data &amp; Labs</small>
+                </div>
             </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">📚</div>
-                <h4>Tutorial Series</h4>
-                <p class="artifact-description">Step‑by‑step walkthroughs that build confidence using key tools.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1Cpb8nRkJUvzVT9GFevM615VxIaujGcq4','_blank')">Explore Tutorials</button>
-            </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">⚡</div>
-                <h4>Performance Support</h4>
-                <p class="artifact-description">Snapshots and at‑a‑glance guides for just‑in‑time support.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1zHeKfJ3MnO7vDv9zNmYJNRsQMgHu2Dre','_blank')">View Resources</button>
-            </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">🎨</div>
-                <h4>Slack Banners</h4>
-                <p class="artifact-description">SRE and CX campaign visuals that keep programs top‑of‑mind in Slack.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1o1xYTC3HLv3wulg3KxkKN2JbHs2gUaDP','_blank')">View Banners</button>
-            </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">📰</div>
-                <h4>Newsletters</h4>
-                <p class="artifact-description">SRE enablement newsletters highlighting launches, patterns, and wins.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/1krZs21EPx6s5t2bwM_Rw0422d_MFFham','_blank')">View Newsletters</button>
-            </div>
-            <div class="artifact-card">
-                <div class="artifact-icon">✨</div>
-                <h4>Vibe Coding</h4>
-                <p class="artifact-description">Learning solutions that shorten build time while delivering elevated, interactive experiences that drive engagement.</p>
-                <button class="artifact-btn" onclick="window.open('https://drive.google.com/drive/u/0/folders/159soCgMcc6KuDaXvKD_I_3ANW3b2OomH','_blank')">Explore Vibe Coding</button>
+    
+            <div class="toolkit-body">
+                <!-- Tab 1 -->
+                <div class="toolkit-panel active" data-tab="1">
+                    <h3>Strategic Architecture &amp; Program Design</h3>
+                    <p>
+                        Structured curricula that align learning with functional business goals
+                        and high‑stakes milestones.
+                    </p>
+                    <ul class="toolkit-list">
+                        <li>Immersive in‑person and virtual programs (e.g., CX Lift Off, Consulting Essentials).</li>
+                        <li>Multi‑module digital learning paths aligned to role, region, and product area.</li>
+                        <li>Curriculum blueprints that combine live sessions, labs, and self‑paced content.</li>
+                        <li>Clear learning objectives tied to measurable readiness and performance outcomes.</li>
+                    </ul>
+                </div>
+    
+                <!-- Tab 2 -->
+                <div class="toolkit-panel" data-tab="2">
+                    <h3>Interactive Media &amp; Technical Innovation</h3>
+                    <p>
+                        Interactive experiences that make complex concepts approachable and memorable.
+                    </p>
+                    <ul class="toolkit-list">
+                        <li>Custom interactive “vibe code” assets for game‑style learning moments.</li>
+                        <li>Scenario‑based simulations that mirror real customer engagements.</li>
+                        <li>Short video explainers and walk‑throughs for internal tools and processes.</li>
+                        <li>Experimentation with new platforms (Sana, AI tools) to extend learning impact.</li>
+                    </ul>
+                </div>
+    
+                <!-- Tab 3 -->
+                <div class="toolkit-panel" data-tab="3">
+                    <h3>Performance Support &amp; Just‑in‑Time Assets</h3>
+                    <p>
+                        Lightweight resources designed for the moment of need, not just the moment of training.
+                    </p>
+                    <ul class="toolkit-list">
+                        <li>Quick‑reference guides, checklists, and one‑pagers for high‑pressure workflows.</li>
+                        <li>Digital job aids embedded in CX Central and other internal hubs.</li>
+                        <li>Microlearning bursts released alongside launches and M&amp;A milestones.</li>
+                        <li>Reusable templates for project communications, readiness checkpoints, and recaps.</li>
+                    </ul>
+                </div>
+    
+                <!-- Tab 4 -->
+                <div class="toolkit-panel" data-tab="4">
+                    <h3>Strategic Comms &amp; Adoption Campaigns</h3>
+                    <p>
+                        Campaigns that motivate busy teams to notice, care about, and act on enablement.
+                    </p>
+                    <ul class="toolkit-list">
+                        <li>Launch narratives and naming (e.g., CX Lift Off, EverydayAI, Project Trident).</li>
+                        <li>Multi‑touch campaigns across email, Slack, intranet, and live sessions.</li>
+                        <li>Gamified challenges and contests that drive exploration of new hubs and content.</li>
+                        <li>Leadership‑ready summaries that connect enablement activity to business outcomes.</li>
+                    </ul>
+                </div>
+    
+                <!-- Tab 5 -->
+                <div class="toolkit-panel" data-tab="5">
+                    <h3>Learning Insights &amp; Data Strategy</h3>
+                    <p>
+                        Data views that make readiness, engagement, and impact visible for stakeholders.
+                    </p>
+                    <ul class="toolkit-list">
+                        <li>Dashboards showing completion, attendance, and engagement across programs.</li>
+                        <li>Pre‑ and post‑session confidence measures to track learning lift.</li>
+                        <li>Usage metrics from CX Central, Sana, and AI tools to inform next‑step priorities.</li>
+                        <li>Regular feedback loops that shape new iterations and follow‑on experiences.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+    
 
     <!-- 5. IMPACT METRICS -->
     <section id="metrics">
