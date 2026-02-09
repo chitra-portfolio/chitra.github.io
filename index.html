@@ -92,8 +92,11 @@ header .header-inner {
 
 /* ===== FULL-WIDTH SECTIONS ===== */
 section {
-    padding: var(--spacing-xxl) 3.5rem;
+    padding: var(--spacing-xxl) 4.5rem;
     scroll-margin-top: var(--header-height);
+    #experience {
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 section:nth-child(even) {
     background: rgba(19,24,54,0.25);
@@ -245,7 +248,7 @@ section:nth-child(even) {
     overflow: hidden;
 }
 .flip-card-front {
-    background: rgba(27,38,59,0.8);
+    background: rgba(27,38,59,0.9);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -253,7 +256,7 @@ section:nth-child(even) {
     text-align: center;
 }
 .flip-card-back {
-    background: var(--color-bg-light);
+    background: rgba(15,22,40,0.98);
     transform: rotateY(180deg);
     overflow-y: auto;
 }
@@ -1123,7 +1126,6 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="section-divider"></div>
 
     <div style="max-width:900px; margin:0 auto 1.5rem; text-align:center; color:var(--color-text-light);">
-        <h3 style="margin-bottom:0.4rem; font-size:1.2rem; color:var(--color-text);">The Enablement Toolkit</h3>
         <p style="margin:0;">
             A strategic framework of assets and insights designed to accelerate workforce readiness and drive measurable performance.
         </p>
@@ -1336,5 +1338,62 @@ document.addEventListener('DOMContentLoaded', function(){
 <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="section-divider"></div>
+
     <div style="max-width:1000px; margin:0 auto;">
-        <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light
+        <p style="text-align:center; font-size:1.05rem; max-width:800px; margin:0 auto 2rem; color:var(--color-text-light);">
+            Learning &amp; Enablement leader with a background in business, instructional design, and community-building.
+        </p>
+
+        <div class="about-grid">
+            <div class="about-card" onclick="openAboutModal('education')">
+                <div class="about-card-icon">🎓</div>
+                <h3>Education</h3>
+            </div>
+            <div class="about-card" onclick="openAboutModal('certifications')">
+                <div class="about-card-icon">📜</div>
+                <h3>Certifications</h3>
+            </div>
+            <div class="about-card" onclick="openAboutModal('tools')">
+                <div class="about-card-icon">🛠️</div>
+                <h3>Tools &amp; Platforms</h3>
+            </div>
+            <div class="about-card" onclick="openAboutModal('interests')">
+                <div class="about-card-icon">💡</div>
+                <h3>Interests</h3>
+            </div>
+            <div class="about-card" onclick="openAboutModal('volunteering')">
+                <div class="about-card-icon">🤝</div>
+                <h3>Volunteering</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About modal -->
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <h2 id="modalTitle"></h2>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- 9. CONNECT -->
+<section id="contact">
+    <h2 class="section-title">Connect</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-info">
+        <p>Interested in learning more about my work?</p>
+        <p>Reach out on LinkedIn or write to me.</p>
+    </div>
+
+    <div class="contact-links">
+        <a class="contact-btn" href="mailto:chitra.srisankar@gmail.com">
+            ✉️ <span>Email</span>
+        </a>
+        <a class="contact-btn" href="https://www.linkedin.com/in/chitrasrisankar" target="_blank" rel="noopener noreferrer">
+            💼 <span>LinkedIn</span>
+        </a>
+    </div>
+</section>
